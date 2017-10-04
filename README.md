@@ -1,5 +1,9 @@
 pe-parse
 =========================================
+
+[![Build Status](https://travis-ci.org/trailofbits/pe-parse.svg?branch=master)](https://travis-ci.org/trailofbits/pe-parse)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/3671/badge.svg)](https://scan.coverity.com/projects/3671)
+
 pe-parse is a principled, lightweight parser for windows portable executable files. It was created to assist in compiled program analysis, potentially of programs of unknown origins. This means that it should be resistant to malformed or maliciously crafted PE files, and it should support questions that analysis software would ask of an executable program container. For example, listing relocations, describing imports and exports, and supporting byte reads from virtual addresses as well as file offsets. 
 
 pe-parse supports these use cases via a minimal API that provides methods for
@@ -8,6 +12,7 @@ pe-parse supports these use cases via a minimal API that provides methods for
  * Iterating over the relocations
  * Iterating over the exported functions
  * Iterating over sections
+ * Iterating over resources
  * Reading bytes from specified virtual addresses
  * Retrieving the program entry point
 
@@ -17,18 +22,15 @@ Internally, the parser-library uses a bounded buffer abstraction to access infor
 
 Building
 ========
-pe-parse is built using [cmake] and depends on [boost].
+pe-parse is built using `cmake` and has no major dependencies.
 
-1. Install dependencies:
-  * Debian/Ubuntu: `sudo apt-get install boost-dev cmake`
-  * RedHat/Fedora: `sudo yum install boost-devel cmake`
-  * OSX: `brew install boost cmake`
+1. Install cmake:
+  * Debian/Ubuntu: `sudo apt-get install cmake`
+  * RedHat/Fedora: `sudo yum install cmake`
+  * OSX: `brew install cmake`
 2. `cmake .`
 3. `make`
 
 Authors
 =======
-pe-parse was designed and implemented by Andrew Ruef (andrew@trailofbits.com)
-
-[cmake]: http://www.cmake.org/
-[boost]: http://www.boost.org/
+pe-parse was designed and implemented by Andrew Ruef (andrew@trailofbits.com), with significant contributions from [Wesley Shields](https://github.com/wxsBSD).
